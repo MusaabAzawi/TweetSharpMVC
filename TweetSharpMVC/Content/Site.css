@@ -1,0 +1,57 @@
+﻿body {
+    padding-top: 90px;
+    padding-bottom: 20px;
+    background-color: whitesmoke;
+    background: url(atmosphere-background-bright-19670.jpg)
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+img {
+    border: 5px;
+    vertical-align: top;
+}
+
+.tweet {
+    margin: 10px;
+    border-bottom: 1px solid #808080;
+}
+
+    .tweet div.picture {
+        float: left;
+    }
+
+    .tweet div.info {
+        float: left;
+        margin-left: 5px;
+    }
+
+        .tweet div.info a.text {
+            color: #00a5ff;
+        }
+
+    .tweet div.clear {
+        clear: both
+    }
+
+.navbar-brand {
+    position: relative;
+    border: 5px;
+    width: 170px;
+    left: 15px;
+}
+footer {
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+    background-color: #000;
+}

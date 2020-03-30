@@ -1,0 +1,64 @@
+﻿@{
+
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@using TweetSharp;
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @*<link rel="stylesheet" type="text/css" href="@Url.Content("~/Views/Content/Stylesheet1.css")" />*@
+    <title>Index</title>
+    <style>
+       
+
+    </style>
+</head>
+<body>
+
+    <div>
+        @using (Html.BeginForm())
+        {
+            <label for="txtTwitterName">Username :</label> <input type="text" name=" txtTwitterName" id="txtTwitterName" placeholder="Type a twitter name" />
+
+            <input type="submit" class="btn btn-primary" value="Get tweets" />
+        }
+        <div>
+            @if (ViewBag.Tweets != null)
+            {
+                IEnumerable<TwitterStatus> tweets = ViewBag.Tweets as IEnumerable<TwitterStatus>;
+                foreach (var tweet in tweets)
+                {
+                    <div class="tweet">
+                        <div class="picture">
+                            <img src="@tweet.User.ProfileImageUrl" alt="@tweet.User.ScreenName" title="@tweet.User.ScreenName" />
+                        </div>
+                        <div class="info">
+                            <span>@tweet.User.Name, @tweet.User.Description - @tweet.User.Location </span>
+                            <br />
+                            <a href="https://twitter.com/statuses/@tweet.Id" class="text">
+                                @tweet.Text
+                            </a>
+                            <div class="action">
+                                @tweet.CreatedDate.AddHours(3).ToString("d/M/yyyy HH:mm:ss")
+                                <a href="https://twitter.com/intent/tweet?in_reply_to=@tweet.Id" target="_blank">Reply</a>
+                                <a href="https://twitter.com/intent/retweet?tweet_id=@tweet.Id" target="_blank">Retweet</a>
+                                <a href="https://twitter.com/intent/favorite?tweet_id=@tweet.Id" target="_blank">Like</a>
+                            </div>
+                        </div>
+                        <div class="clear">
+
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    
+</body>
+</html>
